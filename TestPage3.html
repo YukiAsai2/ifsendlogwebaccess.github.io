@@ -18,7 +18,7 @@
     <p></p>
     テスト3
     <!--Functions実行用のタグ-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/JavaScript">	
         (function(){
             setTimeout(capSendData,0);
@@ -62,32 +62,25 @@
                     
                     //データ送信
                     $.post(capFunctionsUrl, JSON.stringify(capJsonData));
+                    
+                    //JsonDataをコンソール出力(テスト用)
+                    console.log("cookie_id:" + capJsonData.cookie_id);
+                    console.log("brows_dt:" + capJsonData.brows_dt);
+                    console.log("url:" + capJsonData.url);
+                    console.log("origin:" + capJsonData.origin);
+                    console.log("protocol:" + capJsonData.protocol);
+                    console.log("host:" + capJsonData.host);
+                    console.log("hostname:" + capJsonData.hostname);
+                    console.log("port:" + capJsonData.port);
+                    console.log("pathname:" + capJsonData.pathname);
+                    console.log("search:" + capJsonData.search);
+                    console.log("hash:" + capJsonData.hash);
+                    console.log("referer:" + capJsonData.referer);
+                    console.log("agent:" + capJsonData.agent);
                 }catch(e){}
             }
         })();
     </script>
-        
-    </script>	
-    <script type="text/JavaScript">
-        var errorTest = "エラー発生テスト";
-    </script>
-    <script type="text/JavaScript">	
-        document.write("<br>cookie_id:"+ document.cookie);
-        /*document.write("<br>brows_dt:"+ currentDate);*/
-        document.write("<br>url:"+ location.href);
-        document.write("<br>origin:"+ location.origin);
-        document.write("<br>protocol:"+ location.protocol);
-        document.write("<br>host:"+ location.host);
-        document.write("<br>hostname:"+ location.hostname);
-        document.write("<br>port:"+ location.port);
-        document.write("<br>pathname:"+ location.pathname);
-        document.write("<br>search:"+ location.search);
-        document.write("<br>hash:"+ location.hash);
-        document.write("<br>referer:"+ document.referrer);
-        document.write("<br>agent:"+ navigator.userAgent);
-        document.write("<br>errortest:"+ errorTest);
-    </script>
-    <p></p>
 </body>
 </html>
 
