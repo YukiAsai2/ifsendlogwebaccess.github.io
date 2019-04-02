@@ -62,11 +62,6 @@
                     
                     //データ送信
                     $.post(capFunctionsUrl, JSON.stringify(capJsonData));
-	                //ajaxエラーcatch
-	                $(document).ajaxError(function(){
-	                    alert("ajaxError");
-	                    //throw new Error("exception");
-	                });
                 }catch(e){}
             }
         })();
