@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CapTestLogWebAccessHTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./common.css">
+</head>
+<body>
+    <div class = "nav deco_frame">
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage1.html'" >テスト1</div></div>
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage2.html'" >テスト2</div></div>
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage3.html'" >テスト3</div></div>
+        <div class = "nav_title side_by_side">CAPテスト(HTML版)</div>
+        <div class = "nav_user side_by_side"></div>
+    </div>
+    <p></p>
+    テスト3
+    <!--Functions実行用のタグ-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/JavaScript">	
+        (function(){
+            setTimeout(capSendData,0);
+            
+            function capSendData(){
+                //FunctionsのURL
+                var capFunctionsUrl = "https://asaitest.azurewebsites.net/api/InputLogWebAccess?code=P4v4hKFIhTqt5Ow93lpLNaD65MgfFH2yyfF5nx/9EmIajgKC6Ajang==";
+                //Cookie名
+                var capCookieName = "cap_cookie_id";
+                //日時
+                var capCurrentDate = new Date().toISOString();
+
+                try{
+                    //対象cookie名が存在しない場合、cookieを作成
+                    if(document.cookie.indexOf(capCookieName) == -1){
+                        var capUniqueStr = (function(){
+                            function getDig4(){
+                                return Math.floor((Math.random()+1)*10000).toString(16)
+                            }
+                            return getDig4() + getDig4() + "-" + getDig4() + "-" + getDig4() + "-" + getDig4() + "-0" + new Date(capCurrentDate).getTime().toString(16);
+                        }());
+                        document.cookie = capCookieName + '=' + capUniqueStr() + ";expires=" + (new Date(3000,0)).toGMTString() + ";path=/";
+                    }
+                    
+                    //送信データ定義
+                    var capJsonData = {
+                        "cookie_id": document.cookie,
+                        "brows_dt": capCurrentDate,
+                        "url": location.href,
+                        "origin": location.origin,
+                        "protocol": location.protocol,
+                        "host": location.host,
+                        "hostname": location.hostname,
+                        "port": location.port,
+                        "pathname": location.pathname,
+                        "search": location.search,
+                        "hash": location.hash,
+                        "referer": document.referrer,
+                        "agent": navigator.userAgent
+                    };
+                    
+                    //データ送信
+                    $.post(capFunctionsUrl, JSON.stringify(capJsonData));
+                }catch(e){}
+            }
+        })();
+    </script>
+        
+    </script>	
+    <script type="text/JavaScript">
+        var errorTest = "エラー発生テスト";
+    </script>
+    <script type="text/JavaScript">	
+        document.write("<br>cookie_id:"+ document.cookie);
+        /*document.write("<br>brows_dt:"+ currentDate);*/
+        document.write("<br>url:"+ location.href);
+        document.write("<br>origin:"+ location.origin);
+        document.write("<br>protocol:"+ location.protocol);
+        document.write("<br>host:"+ location.host);
+        document.write("<br>hostname:"+ location.hostname);
+        document.write("<br>port:"+ location.port);
+        document.write("<br>pathname:"+ location.pathname);
+        document.write("<br>search:"+ location.search);
+        document.write("<br>hash:"+ location.hash);
+        document.write("<br>referer:"+ document.referrer);
+        document.write("<br>agent:"+ navigator.userAgent);
+        document.write("<br>errortest:"+ errorTest);
+    </script>
+    <p></p>
+</body>
+</html>
+
