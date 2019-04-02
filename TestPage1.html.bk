@@ -33,11 +33,7 @@
 
                 try{
                     //対象cookie名が存在しない場合、cookieを作成
-                    var documentCookie = document.cookie;
-                    var existsCookie = documentCookie.indexOf(capCookieName);
-                    console.log(existsCookie);
-                    //if(document.cookie.indexOf(capCookieName) == -1){
-                    if(existsCookie == -1){
+                    if(document.cookie.indexOf(capCookieName) == -1){
                         var capUniqueStr = (function(){
                             function getDig4(){
                                 return Math.floor((Math.random()+1)*10000).toString(16)
@@ -66,11 +62,6 @@
                     
                     //データ送信
                     $.post(capFunctionsUrl, JSON.stringify(capJsonData));
-	                //ajaxエラーcatch
-	                $(document).ajaxError(function(){
-	                    alert("ajaxError");
-	                    //throw new Error("exception");
-	                });
                 }catch(e){}
             }
         })();
