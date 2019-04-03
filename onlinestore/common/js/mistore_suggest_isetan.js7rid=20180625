@@ -1,0 +1,98 @@
+NPSuggest.bind({
+	//-- Setting ---//
+	inputAreaID: "searchTxt",               // キーワード入力テキストボックス(input type="text")のidを指定
+	submitBtnID: "searchBtn",      // 検索フォーム送信ボタン(input type="button|image")のidを指定
+	categoryAreaID: "search_cat",   // 商品カテゴリ指定用プルダウン(select)のidを指定
+	maxSuggest: 5,                  // サジェストの最大キーワード数
+	matchMode: "partial",            // 前方一致("prefix") / 部分一致("partial")
+	groupByCategory: false,         // サジェスト結果をカテゴリごとに分類するかどうか
+	sortType: 1,                    // サジェスト結果の並び順タイプ ※詳細はマニュアルを参照
+	recommendItemEnabled: "on",     // キーワード関連商品を表示するかどうか(画像表示) "on" / "off"
+	recommendItemAreaTitle: "Recommended Items", // キーワード関連商品を表示の際のタイトル
+	recommendItemAreaPosition: "left", // キーワード関連商品の表示位置 "right" / "left" / "bottom"
+    categoryName:"s13",
+    historyEnabled: "on",
+    sources: {
+      search: {
+      server: "mitsukoshi-f-s.snva.jp",
+      accountID: "mistore_suggest_pro"
+      },
+    recommend: {
+      server: "r.snva.jp",
+      accountID: "Iwml7EXqCWml4"
+      }
+    },
+    columns: {
+      query: {
+        upperSort: "Score",
+        recommendBase: "hybrid",
+        responseType: "html",
+        upperTmpl: "suggest_mitsukoshi",
+        lowerTmpl: "recommend_isetan",
+        recommendTmpl: 17
+      },
+      history: {
+        upperSort: "Score",
+        recommendBase: "hybrid",
+        responseType: "html",
+        upperTmpl: "suggest_mitsukoshi",
+        lowerTmpl: "recommend_isetan",
+        recommendTmpl: 17
+      },
+      title: {
+        upperSort: "Score",
+        recommendBase: "hybrid",
+        responseType: "html",
+        upperTmpl: "suggest_mitsukoshi",
+        lowerTmpl: "recommend_isetan",
+        recommendTmpl: 17
+      },
+      keyword2: {
+        upperSort: "Score",
+        recommendBase: "hybrid",
+        responseType: "html",
+        upperTmpl: "suggest_mitsukoshi",
+        lowerTmpl: "recommend_isetan",
+        recommendTmpl: 17
+      },
+      narrow16: {
+        upperSort: "Score",
+        recommendBase: "hybrid",
+        responseType: "html",
+        upperTmpl: "suggest_mitsukoshi",
+        lowerTmpl: "recommend_isetan",
+        recommendTmpl: 17
+      }
+    }
+});
+
+csvUrl = "/onlinestore/common/txt/category.txt";
+categorylist = [];
+
+getCSVFile();
+
+function getCSVFile() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+    createArray(xhr.responseText);
+    };
+
+    xhr.open("get", csvUrl, true);
+/*
+　　if(xhr.overrideMimeType){
+        xhr.overrideMimeType("text/plain; charset=Shift_JIS");
+    }
+*/
+    xhr.send(null);
+}
+
+function createXMLHttpRequest() {
+    var XMLhttpObject = null;
+    XMLhttpObject = new XMLHttpRequest();
+    return XMLhttpObject;
+}
+
+function createArray(csvData) {
+    var csvArray = csvData.split("\r\n");
+    var tmpArray = [];
+    for(var i = 0; i
