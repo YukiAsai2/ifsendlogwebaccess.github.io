@@ -2608,7 +2608,7 @@ if (crsl.upDateOnWindowResize) {
 		return -1;
 	}
 	function cf_setCookie(n, v) {
-		if (n) document.cookie = n+'='+v+'; path=/';
+		
 	}
 	function cf_readCookie(n) {
 		n += '=';
