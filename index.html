@@ -17,30 +17,6 @@
     </div>
     <p></p>
     indexpage
-    <script type="text/JavaScript">
-        var capCookieName = "cap_cookie_id";
-        var capCurrentDate = new Date().toISOString();
-        /*
-    	var documentCookie = document.cookie;
-        var existsCookie = documentCookie.indexOf(capCookieName);
-        console.log(existsCookie);
-        */
-        
-        //対象cookie名が存在しない場合、cookieを作成
-        var documentCookie = document.cookie;
-        var existsCookie = documentCookie.indexOf(capCookieName);
-        console.log(existsCookie);
-        //if(document.cookie.indexOf(capCookieName) == -1){
-        if(existsCookie == -1){
-            var capUniqueStr = (function(){
-                function getDig4(){
-                    return Math.floor((Math.random()+1)*10000).toString(16)
-                }
-                return getDig4() + getDig4() + "-" + getDig4() + "-" + getDig4() + "-" + getDig4() + "-0" + new Date(capCurrentDate).getTime().toString(16);
-            }());
-            document.cookie = capCookieName + '=' + capUniqueStr + ";expires=" + (new Date(3000,0)).toGMTString() + ";path=/";
-        }
-    </script>
 </body>
 </html>
 

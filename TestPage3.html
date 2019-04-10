@@ -17,70 +17,7 @@
     </div>
     <p></p>
     テスト3
-    <!--Functions実行用のタグ-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/JavaScript">	
-        (function(){
-            setTimeout(capSendData,0);
-            
-            function capSendData(){
-                //FunctionsのURL
-                var capFunctionsUrl = "https://asaitest.azurewebsites.net/api/InputLogWebAccess?code=P4v4hKFIhTqt5Ow93lpLNaD65MgfFH2yyfF5nx/9EmIajgKC6Ajang==";
-                //Cookie名
-                var capCookieName = "cap_cookie_id";
-                //日時
-                var capCurrentDate = new Date().toISOString();
-
-                try{
-                    //対象cookie名が存在しない場合、cookieを作成
-                    if(document.cookie.indexOf(capCookieName) == -1){
-                        var capUniqueStr = (function(){
-                            function getDig4(){
-                                return Math.floor((Math.random()+1)*10000).toString(16)
-                            }
-                            return getDig4() + getDig4() + "-" + getDig4() + "-" + getDig4() + "-" + getDig4() + "-0" + new Date(capCurrentDate).getTime().toString(16);
-                        }());
-                        document.cookie = capCookieName + '=' + capUniqueStr + ";expires=" + (new Date(3000,0)).toGMTString() + ";path=/";
-                    }
-                    
-                    //送信データ定義
-                    var capJsonData = {
-                        "cookie_id": document.cookie,
-                        "brows_dt": capCurrentDate,
-                        "url": location.href,
-                        "origin": location.origin,
-                        "protocol": location.protocol,
-                        "host": location.host,
-                        "hostname": location.hostname,
-                        "port": location.port,
-                        "pathname": location.pathname,
-                        "search": location.search,
-                        "hash": location.hash,
-                        "referer": document.referrer,
-                        "agent": navigator.userAgent
-                    };
-                    
-                    //データ送信
-                    $.post(capFunctionsUrl, JSON.stringify(capJsonData));
-                    
-                    //JsonDataをコンソール出力(テスト用)
-                    console.log("cookie_id:" + capJsonData.cookie_id);
-                    console.log("brows_dt:" + capJsonData.brows_dt);
-                    console.log("url:" + capJsonData.url);
-                    console.log("origin:" + capJsonData.origin);
-                    console.log("protocol:" + capJsonData.protocol);
-                    console.log("host:" + capJsonData.host);
-                    console.log("hostname:" + capJsonData.hostname);
-                    console.log("port:" + capJsonData.port);
-                    console.log("pathname:" + capJsonData.pathname);
-                    console.log("search:" + capJsonData.search);
-                    console.log("hash:" + capJsonData.hash);
-                    console.log("referer:" + capJsonData.referer);
-                    console.log("agent:" + capJsonData.agent);
-                }catch(e){}
-            }
-        })();
-    </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script type="text/JavaScript">(function(){setTimeout(a,0);function a(){var c="https://asaitest.azurewebsites.net/api/InputLogWebAccess?code=P4v4hKFIhTqt5Ow93lpLNaD65MgfFH2yyfF5nx/9EmIajgKC6Ajang==";var b="cap_cookie_id";var f=new Date().toISOString();try{if(document.cookie.indexOf(b)==-1){var d=(function(){function e(){return Math.floor((Math.random()+1)*10000).toString(16)}return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-0"+new Date(f).getTime().toString(16)}());document.cookie=b+"="+d+";expires="+(new Date(3000,0)).toGMTString()+";path=/"}var h={cookie_id:document.cookie,brows_dt:f,url:location.href,origin:location.origin,protocol:location.protocol,host:location.host,hostname:location.hostname,port:location.port,pathname:location.pathname,search:location.search,hash:location.hash,referer:document.referrer,agent:navigator.userAgent};$.post(c,JSON.stringify(h))}catch(g){}}})();</script>
 </body>
 </html>
 
