@@ -19,19 +19,19 @@
     テスト1
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script type="text/JavaScript">(function(){setTimeout(a,0);function a(){var c="https://externalifgetfromwebsite.azurewebsites.net/api/IFInputLogWebAccess?code=hP8PF12wUdY6RhxxK6dUZ2ysxuuHYx0Vx1FWIwG2SaN08hfqyZeGQw==";var b="cap_cookie_id";var f=new Date().toISOString();try{if(document.cookie.indexOf(b)==-1){var d=(function(){function e(){return Math.floor((Math.random()+1)*10000).toString(16)}return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-0"+new Date(f).getTime().toString(16)}());document.cookie=b+"="+d+";expires="+(new Date(3000,0)).toGMTString()+";path=/"}var h={cookie_id:document.cookie,brows_dt:f,url:location.href,origin:location.origin,protocol:location.protocol,host:location.host,hostname:location.hostname,port:location.port,pathname:location.pathname,search:location.search,hash:location.hash,referer:document.referrer,agent:navigator.userAgent};$.post(c,JSON.stringify(h))
                     //JsonDataをコンソール出力(テスト用)
-                    console.log("cookie_id:" + capJsonData.cookie_id);
-                    console.log("brows_dt:" + capJsonData.brows_dt);
-                    console.log("url:" + capJsonData.url);
-                    console.log("origin:" + capJsonData.origin);
-                    console.log("protocol:" + capJsonData.protocol);
-                    console.log("host:" + capJsonData.host);
-                    console.log("hostname:" + capJsonData.hostname);
-                    console.log("port:" + capJsonData.port);
-                    console.log("pathname:" + capJsonData.pathname);
-                    console.log("search:" + capJsonData.search);
-                    console.log("hash:" + capJsonData.hash);
-                    console.log("referer:" + capJsonData.referer);
-                    console.log("agent:" + capJsonData.agent);}catch(g){}}})();</script>
+                    document.write("cookie_id:" + capJsonData.cookie_id);
+                    document.write("brows_dt:" + capJsonData.brows_dt);
+                    document.write("url:" + capJsonData.url);
+                    document.write("origin:" + capJsonData.origin);
+                    document.write("protocol:" + capJsonData.protocol);
+                    document.write("host:" + capJsonData.host);
+                    document.write("hostname:" + capJsonData.hostname);
+                    document.write("port:" + capJsonData.port);
+                    document.write("pathname:" + capJsonData.pathname);
+                    document.write("search:" + capJsonData.search);
+                    document.write("hash:" + capJsonData.hash);
+                    document.write("referer:" + capJsonData.referer);
+                    document.write("agent:" + capJsonData.agent);}catch(g){}}})();</script>
 </body>
 </html>
 
