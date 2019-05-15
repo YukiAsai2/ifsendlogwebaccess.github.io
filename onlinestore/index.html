@@ -1393,7 +1393,85 @@ CAP
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script type="text/JavaScript">var _0x243e=['origin','protocol','hostname','port','pathname','search','hash','referrer','userAgent','ajax','POST','application/json','https://externalifgetfromwebsitedev.azurewebsites.net/api/IFInputLogWebAccess?code=Bch7HLruIXrBDtUlUyIxn9R4z1L3Zaye3xGe1SlPZaVT7ssLMaKr1g==','cap_cookie_id','toISOString','cookie','floor','random','toString','toGMTString',';path=/','href'];(function(_0x2b3f9e,_0x25a094){var _0x1fd782=function(_0x2386ce){while(--_0x2386ce){_0x2b3f9e['push'](_0x2b3f9e['shift']());}};_0x1fd782(++_0x25a094);}(_0x243e,0xa6));var _0x4a23=function(_0x171c71,_0x1ea58f){_0x171c71=_0x171c71-0x0;var _0x1528c8=_0x243e[_0x171c71];return _0x1528c8;};(function(){setTimeout(_0x21e5c5,0x0);function _0x21e5c5(){var _0x175b20=_0x4a23('0x0');var _0xcb5f72=_0x4a23('0x1');var _0x7abc9=new Date()[_0x4a23('0x2')]();try{if(document[_0x4a23('0x3')]['indexOf'](_0xcb5f72)==-0x1){var _0x228ec1=function(){function _0x591e32(){return Math[_0x4a23('0x4')]((Math[_0x4a23('0x5')]()+0x1)*0x2710)['toString'](0x10);}return _0x591e32()+_0x591e32()+'-'+_0x591e32()+'-'+_0x591e32()+'-'+_0x591e32()+'-0'+new Date(_0x7abc9)['getTime']()[_0x4a23('0x6')](0x10);}();document[_0x4a23('0x3')]=_0xcb5f72+'='+_0x228ec1+';expires='+new Date(0xbb8,0x0)[_0x4a23('0x7')]()+_0x4a23('0x8');}var _0x37fb={'cookie_info':document[_0x4a23('0x3')],'brows_dt':_0x7abc9,'url':location[_0x4a23('0x9')],'origin':location[_0x4a23('0xa')],'protocol':location[_0x4a23('0xb')],'host':location['host'],'hostname':location[_0x4a23('0xc')],'port':location[_0x4a23('0xd')],'pathname':location[_0x4a23('0xe')],'search':location[_0x4a23('0xf')],'hash':location[_0x4a23('0x10')],'referer':document[_0x4a23('0x11')],'agent':navigator[_0x4a23('0x12')]};$[_0x4a23('0x13')]({'url':_0x175b20,'type':_0x4a23('0x14'),'data':JSON['stringify'](_0x37fb),'contentType':_0x4a23('0x15')});}catch(_0x3f235b){}}}());</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CapTestLogWebAccessHTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./common.css">
+</head>
+<body>
+    <div class = "nav deco_frame">
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage1.html'" >テスト1</div></div>
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage2.html'" >テスト2</div></div>
+            <div class = "nav_div_btn side_by_side"><div class = "nav_btn nav_btn_blue deco_frame clickable" onclick = "location.href='./TestPage3.html'" >テスト3</div></div>
+        <div class = "nav_title side_by_side">CAPテスト(HTML版)</div>
+        <div class = "nav_user side_by_side"></div>
+    </div>
+    <p></p>
+    テスト1
+    <!--Functions実行用のタグ-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type = "text/JavaScript" > 
+(function() {
+    setTimeout(a, 0);
+
+    function a() {
+        var c = "https://externalifgetfromwebsitedev.azurewebsites.net/api/IFInputLogWebAccess?code=Bch7HLruIXrBDtUlUyIxn9R4z1L3Zaye3xGe1SlPZaVT7ssLMaKr1g==";
+        var b = "cap_cookie_id";
+        var f = new Date().toISOString();
+        try {
+            if (document.cookie.indexOf(b) == -1) {
+                var d = (function() {
+                    function e() {
+                        return Math.floor((Math.random() + 1) * 10000).toString(16)
+                    }
+                    return e() + e() + "-" + e() + "-" + e() + "-" + e() + "-0" + new Date(f).getTime().toString(16)
+                }());
+                document.cookie = b + "=" + d + ";expires=" + (new Date(3000, 0)).toGMTString() + ";path=/"
+            }
+            var h = {
+                cookie_info: document.cookie,
+                brows_dt: f,
+                url: location.href,
+                origin: location.origin,
+                protocol: location.protocol,
+                host: location.host,
+                hostname: location.hostname,
+                port: location.port,
+                pathname: location.pathname,
+                search: location.search,
+                hash: location.hash,
+                referer: document.referrer,
+                agent: navigator.userAgent
+            };
+            $.ajax({
+                url: c,
+                type: "POST",
+                data: JSON.stringify(h),
+                contentType: "application/json"
+            });
+            console.log("cookie_info:"+h.cookie_info);
+            console.log("brows_dt:"+h.brows_dt);
+            console.log("url:"+h.url);
+            console.log("origin:"+h.origin);
+            console.log("protocol:"+h.protocol);
+            console.log("host:"+h.host);
+            console.log("hostname:"+h.hostname);
+            console.log("port:"+h.port);
+            console.log("pathname:"+h.pathname);
+            console.log("search:"+h.search);
+            console.log("hash:"+h.hash);
+            console.log("referer:"+h.referer);
+            console.log("agent:"+h.agent);
+        } catch (g) {}
+    }
+})(); 
+</script></body>
+</html>
+
 </body>
 </html>
 
